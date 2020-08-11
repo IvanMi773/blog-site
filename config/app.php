@@ -135,6 +135,10 @@ return [
     */
 
     'providers' => [
+		/*
+		* Admin SleepingOwk provider
+		*/
+		SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
