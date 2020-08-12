@@ -22,11 +22,11 @@ use SleepingOwl\Admin\Navigation\Page;
 // AdminSection::addMenuPage(\App\User::class)
 
 return [
-    [
-        'title' => 'Dashboard',
-        'icon'  => 'fas fa-tachometer-alt',
-        'url'   => route('admin.dashboard'),
-    ],
+    // [
+    //     'title' => 'Dashboard',
+    //     'icon'  => 'fas fa-tachometer-alt',
+    //     'url'   => route('admin.dashboard'),
+    // ],
 
 	// [
     //     'title' => 'Articles',
@@ -34,11 +34,11 @@ return [
     //     'url'   => route('admin.articles'),
     // ],
 
-    [
-        'title' => 'Information',
-        'icon'  => 'fas fa-info-circle',
-        'url'   => route('admin.information'),
-	],
+    // [
+    //     'title' => 'Information',
+    //     'icon'  => 'fas fa-info-circle',
+    //     'url'   => route('admin.information'),
+	// ],
 	
 	
 

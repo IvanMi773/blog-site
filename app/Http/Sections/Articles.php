@@ -46,7 +46,7 @@ class Articles extends Section implements Initializable
      */
     public function initialize()
     {
-        $this->addToNavigation()->setPriority(100)->setIcon('fa fa-lightbulb-o');
+        $this->addToNavigation()->setPriority(100)->setIcon('far fa-newspaper');
     }
 
     /**
@@ -135,11 +135,13 @@ class Articles extends Section implements Initializable
                     ->required()
 				,
 
+				// Slug
 				AdminFormElement::textarea('slug', 'Slug')
 					->setRows(5)
 					->required()
 				,
 
+				// Text
 				AdminFormElement::textarea('text', 'Text')
 					->required()
 				,
