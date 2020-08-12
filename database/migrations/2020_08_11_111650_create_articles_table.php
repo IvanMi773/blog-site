@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
 			$table->string('title');
 			$table->string('slug');
 			$table->text('text');
+			$table->boolean('is_dirt')->default(true);
             $table->timestamps();
         });
     }

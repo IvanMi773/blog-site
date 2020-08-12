@@ -81,8 +81,8 @@ class Articles extends Section implements Initializable
 			// User Id
 			AdminColumn::text('user_id', 'User Id'),
 
-			// On
-			AdminColumn::boolean('name', 'On'),
+			// Is dirt
+			AdminColumn::boolean('is_dirt', 'Is dirt'),
 			
 			// Created at
             AdminColumn::text('created_at', 'Created / updated', 'updated_at')
@@ -154,6 +154,9 @@ class Articles extends Section implements Initializable
             ], 'col-xs-12 col-sm-6 col-md-4 col-lg-4')->addColumn([
 				// Id
 				AdminFormElement::text('id', 'ID')->setReadonly(true),
+
+				// Is dirt
+				AdminFormElement::checkbox('is_dirt', 'Is Dirt'),
 				
 				// Category 
 				AdminFormElement::manyToMany('categories', )

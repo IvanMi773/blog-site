@@ -26,24 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-		$categories = ['Office Chairs', 'Modern Chairs', 'Home Chairs'];
-
-		foreach($categories as $category)
-		{
-			Category::create([
-				'name'  =>  $category,
-			]);
-		}
-
-		$article = Article::create([
-			'title'  =>  'Home Brixton Faux Leather Armchair',
-			'slug' =>  'fadjsklfas',
-			'text' =>  'fadjsklfas',
-		]);
-		
-		$categories = Category::find([2,3]); // Modren Chairs, Home Chairs
-		$article->categories()->attach($categories);
-
         return view('home');
     }
 }
