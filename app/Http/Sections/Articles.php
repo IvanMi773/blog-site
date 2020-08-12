@@ -136,6 +136,7 @@ class Articles extends Section implements Initializable
 				,
 
 				AdminFormElement::textarea('slug', 'Slug')
+					->setRows(5)
 					->required()
 				,
 

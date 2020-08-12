@@ -131,25 +131,27 @@ class Users extends Section implements Initializable
     {
         $form = AdminForm::card()->addBody([
             AdminFormElement::columns()->addColumn([
+				// Name
                 AdminFormElement::text('name', 'Name')
                     ->required()
-                ,
-                AdminFormElement::html('<hr>'),
+				,
+				
+				// Created at
                 AdminFormElement::datetime('created_at')
                     ->setVisible(true)
                     ->setReadonly(false)
                 ,
-                AdminFormElement::html('last AdminFormElement without comma')
             ], 'col-xs-12 col-sm-6 col-md-4 col-lg-4')->addColumn([
-                AdminFormElement::text('id', 'ID')->setReadonly(true),
-                AdminFormElement::html('last AdminFormElement without comma')
+				// Id
+				AdminFormElement::text('id', 'ID')->setReadonly(true),
+				
+				// Is admin
+				AdminFormElement::checkbox('is_admin', 'Admin'),
             ], 'col-xs-12 col-sm-6 col-md-8 col-lg-8'),
         ]);
 
         $form->getButtons()->setButtons([
-            'save'  => new Save(),
             'save_and_close'  => new SaveAndClose(),
-            'save_and_create'  => new SaveAndCreate(),
             'cancel'  => (new Cancel()),
         ]);
 
