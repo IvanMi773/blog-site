@@ -17,16 +17,14 @@ use SleepingOwl\Admin\Form\Buttons\SaveAndClose;
 use SleepingOwl\Admin\Form\Buttons\SaveAndCreate;
 use SleepingOwl\Admin\Section;
 
-use App\Models\Category;
-
 /**
- * Class Articles
+ * Class Categories
  *
- * @property \App\Models\Article $model
+ * @property \App\Models\Category $model
  *
  * @see https://sleepingowladmin.ru/#/ru/model_configuration_section
  */
-class Articles extends Section implements Initializable
+class Categories extends Section implements Initializable
 {
     /**
      * @var bool
@@ -48,7 +46,7 @@ class Articles extends Section implements Initializable
      */
     public function initialize()
     {
-        $this->addToNavigation()->setPriority(100)->setIcon('far fa-newspaper');
+        $this->addToNavigation()->setPriority(100)->setIcon('fas fa-align-left');
     }
 
     /**
@@ -59,14 +57,14 @@ class Articles extends Section implements Initializable
     public function onDisplay($payload = [])
     {
         $columns = [
-			// #
+			// Id
 			AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
 			
-			// Title
-            AdminColumn::link('title', 'Title', 'created_at')
+			// Name
+            AdminColumn::link('name', 'Name', 'created_at')
                 ->setSearchCallback(function($column, $query, $search){
                     return $query
-                        ->orWhere('title', 'like', '%'.$search.'%')
+                        ->orWhere('name', 'like', '%'.$search.'%')
                         ->orWhere('created_at', 'like', '%'.$search.'%')
                     ;
                 })
@@ -75,14 +73,7 @@ class Articles extends Section implements Initializable
                 })
 			,
 
-			// Text
-			AdminColumn::text('text', 'Text'),
-
-			// User Id
-			AdminColumn::text('user_id', 'User Id'),
-
-			// On
-			AdminColumn::boolean('name', 'On'),
+			AdminColumn::text('description', 'Description'),
 			
 			// Created at
             AdminColumn::text('created_at', 'Created / updated', 'updated_at')
@@ -105,7 +96,7 @@ class Articles extends Section implements Initializable
 
         $display->setColumnFilters([
             AdminColumnFilter::select()
-                ->setModelForOptions(\App\Models\Article::class, 'name')
+                ->setModelForOptions(\App\Models\Category::class, 'name')
                 ->setLoadOptionsQueryPreparer(function($element, $query) {
                     return $query;
                 })
@@ -129,37 +120,26 @@ class Articles extends Section implements Initializable
     {
         $form = AdminForm::card()->addBody([
             AdminFormElement::columns()->addColumn([
-				// Title
-                AdminFormElement::text('title', 'Title')
+				// Name
+                AdminFormElement::text('name', 'Name')
                     ->required()
 				,
-
-				// Slug
-				AdminFormElement::textarea('slug', 'Slug')
+				
+				// Description
+				AdminFormElement::textarea('description', 'Description')
 					->setRows(5)
-					->required()
 				,
-
-				// Text
-				AdminFormElement::textarea('text', 'Text')
-					->required()
-				,
-
+				
 				// Created at
-                AdminFormElement::datetime('created_at', 'Created at')
+                AdminFormElement::datetime('created_at')
                     ->setVisible(true)
                     ->setReadonly(false)
-				,
-				
+                ,
+                
             ], 'col-xs-12 col-sm-6 col-md-4 col-lg-4')->addColumn([
 				// Id
-				AdminFormElement::text('id', 'ID')->setReadonly(true),
-				
-				// Category 
-				AdminFormElement::manyToMany('categories', )
-					->setRelatedElementDisplayName('name')
-				,
-
+                AdminFormElement::text('id', 'ID')->setReadonly(true),
+                
             ], 'col-xs-12 col-sm-6 col-md-8 col-lg-8'),
         ]);
 
