@@ -1,8 +1,15 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 // Variables
 @import 'variables';
 
+// Modules imports
+@import 'articles';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
