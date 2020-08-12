@@ -57,7 +57,10 @@ class Users extends Section implements Initializable
     public function onDisplay($payload = [])
     {
         $columns = [
-            AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
+			// Id
+			AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
+			
+			// Name
             AdminColumn::link('name', 'Name', 'created_at')
                 ->setSearchCallback(function($column, $query, $search){
                     return $query
@@ -68,8 +71,22 @@ class Users extends Section implements Initializable
                 ->setOrderable(function($query, $direction) {
                     $query->orderBy('created_at', $direction);
                 })
-            ,
-            AdminColumn::boolean('name', 'On'),
+			,
+
+			// Email
+			AdminColumn::text('email', 'Email', 'created_at')
+				->setSearchCallback(function($column, $query, $search){
+					return $query
+						->orWhere('email', 'like', '%'.$search.'%')
+						->orWhere('created_at', 'like', '%'.$search.'%')
+					;
+				})
+			,
+
+			// Is admin
+			AdminColumn::boolean('is_admin', 'Admin'),
+			
+			// Created at
             AdminColumn::text('created_at', 'Created / updated', 'updated_at')
                 ->setWidth('160px')
                 ->setOrderable(function($query, $direction) {

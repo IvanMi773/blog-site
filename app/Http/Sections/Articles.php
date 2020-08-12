@@ -57,19 +57,35 @@ class Articles extends Section implements Initializable
     public function onDisplay($payload = [])
     {
         $columns = [
-            AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::link('name', 'Name', 'created_at')
+			// #
+			AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
+			
+			// Title
+            AdminColumn::link('title', 'Title', 'created_at')
                 ->setSearchCallback(function($column, $query, $search){
                     return $query
-                        ->orWhere('name', 'like', '%'.$search.'%')
+                        ->orWhere('title', 'like', '%'.$search.'%')
                         ->orWhere('created_at', 'like', '%'.$search.'%')
                     ;
                 })
                 ->setOrderable(function($query, $direction) {
                     $query->orderBy('created_at', $direction);
                 })
-            ,
-            AdminColumn::boolean('name', 'On'),
+			,
+
+			// Text
+			AdminColumn::text('text', 'Text'),
+
+			// Category Id
+			AdminColumn::text('category_id', 'Category Id'),
+
+			// User Id
+			AdminColumn::text('user_id', 'User Id'),
+
+			// On
+			AdminColumn::boolean('name', 'On'),
+			
+			// Created at
             AdminColumn::text('created_at', 'Created / updated', 'updated_at')
                 ->setWidth('160px')
                 ->setOrderable(function($query, $direction) {
@@ -114,25 +130,39 @@ class Articles extends Section implements Initializable
     {
         $form = AdminForm::card()->addBody([
             AdminFormElement::columns()->addColumn([
-                AdminFormElement::text('name', 'Name')
+				// Title
+                AdminFormElement::text('title', 'Title')
                     ->required()
-                ,
-                AdminFormElement::html('<hr>'),
-                AdminFormElement::datetime('created_at')
+				,
+
+				AdminFormElement::textarea('slug', 'Slug')
+					->required()
+				,
+
+				AdminFormElement::textarea('text', 'Text')
+					->required()
+				,
+
+				// Created at
+                AdminFormElement::datetime('created_at', 'Created at')
                     ->setVisible(true)
                     ->setReadonly(false)
-                ,
-                AdminFormElement::html('last AdminFormElement without comma')
+				,
+				
             ], 'col-xs-12 col-sm-6 col-md-4 col-lg-4')->addColumn([
-                AdminFormElement::text('id', 'ID')->setReadonly(true),
-                AdminFormElement::html('last AdminFormElement without comma')
+				// Id
+				AdminFormElement::text('id', 'ID')->setReadonly(true),
+				
+				// Category Id
+				AdminFormElement::text('category_id', 'Category Id')->required(),
+
+				// User Id
+				AdminFormElement::text('user_id', 'User Id')->required(),
             ], 'col-xs-12 col-sm-6 col-md-8 col-lg-8'),
         ]);
 
         $form->getButtons()->setButtons([
-            'save'  => new Save(),
             'save_and_close'  => new SaveAndClose(),
-            'save_and_create'  => new SaveAndCreate(),
             'cancel'  => (new Cancel()),
         ]);
 
