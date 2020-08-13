@@ -9,7 +9,25 @@
 	color: $gray;
 }
 
-.text-black {
+.category {
+	font-family: 'Antic Slab', serif;
+	font-size: 1.5em;
+	color: $black;
+	text-decoration: underline;
+	text-align: center;
+
+	&:hover {
+		color: $light-gray;
+	} 
+}
+
+.dash {
+	color: $dark-white;
+}
+
+.title {
+	font-family: 'Antic Slab', serif;
+	font-size: 35px;
 	font-weight: bold;
 	color: $black;
 
