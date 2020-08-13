@@ -15,4 +15,10 @@ class ArticleController extends Controller
 		
 		return view('blog.articles.index', compact('articles'));
 	}
+
+	public function show (Article $article) 
+	{
+		// TODO: normal data output
+		return view('blog.articles.show', compact('article'));
+	}
 }

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Blog\ArticleController@index')->name('article.index');
+Route::get('/article/{article}', 'Blog\ArticleController@show')->name('article.show');
 
 Auth::routes();
 

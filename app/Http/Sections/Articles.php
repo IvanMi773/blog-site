@@ -91,7 +91,7 @@ class Articles extends Section implements Initializable
                     $query->orderBy('updated_at', $direction);
                 })
                 ->setSearchable(false)
-            ,
+			,
         ];
 
         $display = AdminDisplay::datatables()
