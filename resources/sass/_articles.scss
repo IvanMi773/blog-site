@@ -4,18 +4,13 @@
 	width: 40em;
 }
 
-.text {
-	font-size: 1.2em;
-	color: $gray;
-}
-
 .category {
 	font-family: 'Antic Slab', serif;
 	font-size: 1.5em;
 	color: $black;
 	text-decoration: underline;
 	text-align: center;
-
+	
 	&:hover {
 		color: $light-gray;
 	} 
@@ -23,6 +18,29 @@
 
 .dash {
 	color: $dark-white;
+}
+
+.form {
+	margin-top: 20px;
+	margin-bottom: 25px;
+	display: flex;
+	justify-content: center;
+}
+
+.input_text {
+	height: 35px;
+	border-radius: .3em;
+}
+
+.button {
+	border-radius: .3em;
+	background-color: $black;
+	color: $body-bg;
+
+	&:hover {
+		background-color: $gray;
+		border-color: $black;
+	} 
 }
 
 .title {
@@ -34,4 +52,9 @@
 	&:hover {
 		color: $black;
 	}
+}
+
+.text {
+	font-size: 1.2em;
+	color: $gray;
 }

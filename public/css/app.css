@@ -7,11 +7,6 @@
   width: 40em;
 }
 
-.text {
-  font-size: 1.2em;
-  color: #444343;
-}
-
 .category {
   font-family: "Antic Slab", serif;
   font-size: 1.5em;
@@ -28,6 +23,29 @@
   color: #8f8383;
 }
 
+.form {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.input_text {
+  height: 35px;
+  border-radius: 0.3em;
+}
+
+.button {
+  border-radius: 0.3em;
+  background-color: black;
+  color: #f8fafc;
+}
+
+.button:hover {
+  background-color: #444343;
+  border-color: black;
+}
+
 .title {
   font-family: "Antic Slab", serif;
   font-size: 35px;
@@ -37,6 +55,11 @@
 
 .title:hover {
   color: black;
+}
+
+.text {
+  font-size: 1.2em;
+  color: #444343;
 }
 
 /*!
