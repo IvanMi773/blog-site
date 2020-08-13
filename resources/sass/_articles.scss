@@ -3,3 +3,17 @@
 	margin-right: auto;
 	width: 40em;
 }
+
+.text {
+	font-size: 1.2em;
+	color: $gray;
+}
+
+.text-black {
+	font-weight: bold;
+	color: $black;
+
+	&:hover {
+		color: $black;
+	}
+}

@@ -1,22 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-	{{-- <div class="container"> --}}
 		<div class="centered-block">
-			{{-- <div class="col"></div> --}}
-			{{-- <div class="col"> --}}
-				@foreach($articles as $article)
-					<a href="{{ url('article.show', $article->id) }}" class="text-left text-dark text-break">
-						<h3>
-							{{ $article->title }}
-						</h3>
-					</a>
-					<br>
-				@endforeach
+			@foreach($articles as $article)
+				<a href="{{ url('article.show', $article->id) }}" class="text-left text-black text-break">
+					<h2>
+						{{ $article->title }}
+					</h2>
+				</a>
+				
+				<p class="text-muted mb-0">{{ $article->created_at }}</p>
 
-				{{ $articles->links() }}
+				<p class="text-break text mt-0">
+					{{ $article->slug }}
+					
+					<a href="{{ url('article.show', $article->id) }}" class="text-left text-break">Continue...</a>
+				</p>
+
+				<br>
+			@endforeach
+
+			{{ $articles->links() }}
 		</div>
-			{{-- <div class="col"></div>
-		</div> --}}
-	{{-- </div> --}}
 @endsection

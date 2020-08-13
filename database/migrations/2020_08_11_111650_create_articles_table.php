@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
 			$table->id();
 			$table->unsignedBigInteger('user_id')->nullable();
 			$table->string('title');
+			// TODO: change slug from string to text
 			$table->string('slug');
 			$table->text('text');
 			$table->boolean('is_dirt')->default(true);
