@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
@@ -20,6 +21,9 @@ class ArticleController extends Controller
 	public function show (Article $article) 
 	{
 		// TODO: normal date output
-		return view('blog.articles.show', compact('article'));
+
+		$comments = Comment::where('article_id', '=', $article->id)->paginate(100);
+
+		return view('blog.articles.show', compact('article', 'comments'));
 	}
 }

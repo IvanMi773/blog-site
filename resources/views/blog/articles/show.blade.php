@@ -14,10 +14,16 @@
 
 		<br>
 
-		{{-- <form action="" method="post">
+		<form action="{{ route('comment.store') }}" method="post">
+			@csrf
 			<input type="text" name="text" id="text" class="input_text">
+			<input type="hidden" name="article_id" value="{{ $article->id }}">
 
 			<button type="submit" class="button padding">Send</button>
-		</form> --}}
+		</form>
+
+		@foreach ($comments as $comment)
+			<p>{{ $comment->text }}</p>
+		@endforeach
 	</div>
 @endsection

@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Blog\ArticleController@index')->name('article.index');
 Route::get('/article/{article}', 'Blog\ArticleController@show')->name('article.show');
 
-Auth::routes();
+Route::post('/c', 'Blog\CommentController@store')->name('comment.store');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
