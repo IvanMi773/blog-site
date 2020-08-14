@@ -37,10 +37,19 @@
 	background-color: $black;
 	color: $body-bg;
 
+	font-size: 1.1em;
+
 	&:hover {
 		background-color: $gray;
 		border-color: $black;
 	} 
+}
+
+.padding {
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-left: .7em;
+	padding-right: .7em;
 }
 
 .title {

@@ -11,7 +11,6 @@ class ArticleController extends Controller
 {
 	public function index ()
 	{
-		// TODO: count of words in text
 		$articles = Article::where('is_dirt', '=', '0')->paginate(20);
 		$categories = Category::all();
 		
@@ -20,7 +19,7 @@ class ArticleController extends Controller
 
 	public function show (Article $article) 
 	{
-		// TODO: normal data output
+		// TODO: normal date output
 		return view('blog.articles.show', compact('article'));
 	}
 }

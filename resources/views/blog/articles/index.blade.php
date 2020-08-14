@@ -10,11 +10,11 @@
 
 		<br>
 
-		<form action="" method="post" class="form">
+		{{-- <form action="" method="post" class="form">
 			<input type="text" name="search" id="search" placeholder="Search..." class="input_text" required>
 
 			<button type="submit" class="button">Search</button>
-		</form>
+		</form> --}}
 
 		<hr>
 

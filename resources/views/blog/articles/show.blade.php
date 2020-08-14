@@ -13,5 +13,11 @@
 		</p>
 
 		<br>
+
+		{{-- <form action="" method="post">
+			<input type="text" name="text" id="text" class="input_text">
+
+			<button type="submit" class="button padding">Send</button>
+		</form> --}}
 	</div>
 @endsection

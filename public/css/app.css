@@ -39,11 +39,19 @@
   border-radius: 0.3em;
   background-color: black;
   color: #f8fafc;
+  font-size: 1.1em;
 }
 
 .button:hover {
   background-color: #444343;
   border-color: black;
+}
+
+.padding {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
 }
 
 .title {
