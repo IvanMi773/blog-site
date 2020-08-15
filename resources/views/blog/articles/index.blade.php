@@ -26,7 +26,9 @@
 			<p class="text-muted mb-3 mt-3">{{ $article->created_at }}</p>
 
 			<p class="text-break text mb-5">
-				{{ $article->slug }}
+				@php
+					echo "$article->slug"
+				@endphp
 				
 				<a href="{{ route('article.show', $article->id) }}" class="text-left text-break">Continue...</a>
 			</p>
