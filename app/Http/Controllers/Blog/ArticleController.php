@@ -10,9 +10,16 @@ use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
-	public function index ()
+	public function index ($category_id)
 	{
-		$articles = Article::where('is_dirt', '=', '0')->paginate(20);
+		if ($category_id != '' && $category_id != null && $category_id != 0)
+		{
+			$category = Category::find($category_id);
+			$articles = $category->articles()->paginate(20);
+		} else {
+			$articles = Article::where('is_dirt', '=', '0')->paginate(20);
+		}
+
 		$categories = Category::all();
 		
 		return view('blog.articles.index', compact('articles', 'categories'));

@@ -3,7 +3,7 @@
 @section('content')
 	<div class="centered-block">
 		@foreach($categories as $category)
-			<a href="#" class="category">
+			<a href="{{ route('article.index', $category->id) }}" class="category">
 				{{ $category->name }} <span class="dash"> | </span>
 			</a>
 		@endforeach

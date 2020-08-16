@@ -76,10 +76,7 @@ class Articles extends Section implements Initializable
 			,
 
 			// Text
-			AdminColumn::text('text', 'Text'),
-
-			// User Id
-			AdminColumn::text('user_id', 'User Id'),
+			AdminColumn::text('slug', 'Slug'),
 
 			// Is dirt
 			AdminColumn::boolean('is_dirt', 'Is dirt'),

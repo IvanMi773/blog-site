@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CommentCreateRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\Article;
 
 class CommentController extends Controller
 {
+	// public function articlesWithThisCategory (Category $category)
+	// {
+	// 	$articles = Article::where('category_id', '=', $category->id)->paginate(20);
+
+	// 	return view('blog.articles.index', compact('articles'));
+	// }
+
 	public function store (CommentCreateRequest $request)
 	{
 		$data = $request->validated();
