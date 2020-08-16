@@ -50,7 +50,13 @@
 				{{ $article->title }}
 			</a>
 			
-			<p class="text-muted mb-3 mt-3">{{ $article->created_at }}</p>
+			<div class="inline mb-3 mt-3">
+				<p class="text-muted">{{ $article->created_at }}</p>
+
+				@foreach ($article->categories as $category)
+					<p class="text-large ml-2 font-weight-bold"> {{ $category->name }} </p>
+				@endforeach
+			</div>
 
 			<p class="text-break text mb-5">
 				@php
