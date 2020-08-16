@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+	<div class="container">
+		<a href="/blog/1" class="font-weight-bold text-dark text-large"><-Back</a>
+	</div>
+
 	<div class="centered-block">
 		<h2 class="text-left mb-3 text-black text-break">
 			{{ $article->title }}
@@ -16,8 +20,9 @@
 
 		<br>
 
-		{{-- <form action="{{ route('comment.store') }}" method="post">
+		<form action="{{ route('comment.store') }}" method="post" class="mb-3">
 			@csrf
+			<span class="text-muted">Please use html to make your comment look better</span> <br>
 			<input type="text" name="text" id="text" class="input_text">
 			<input type="hidden" name="article_id" value="{{ $article->id }}">
 
@@ -26,9 +31,13 @@
 
 		@foreach ($comments as $comment)
 			<p>
-				<span>{{ $comment->text }}</span> <br>
+				<span>
+					@php
+						echo "$comment->text"
+					@endphp	
+				</span> <br>
 				<span class="text-muted">{{ $comment->created_at }}</span> <br> 
 			</p>
-		@endforeach --}}
+		@endforeach
 	</div>
 @endsection

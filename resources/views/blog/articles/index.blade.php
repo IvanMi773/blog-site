@@ -10,6 +10,33 @@
 
 		<br>
 
+		<div class="centered-line mt-3 mb-3">
+			<form action="{{ route('theme') }}" method="POST" class="">
+				@csrf
+	
+				<select name="theme" id="theme">
+					<option value="white">White</option>
+					<option value="dark">Dark</option>
+				</select>
+			</form>
+
+			<form action="{{ route('language') }}" method="POST" class="">
+				@csrf
+	
+				<select name="language" id="language">
+					<option value="ukrainian">Ukrainian</option>
+					<option value="english">English</option>
+					<option value="russian">Russian</option>
+				</select>
+			</form>
+
+			<form action="{{ route('logout') }}" method="POST" class="">
+				@csrf
+	
+				<button type="submit" class="button p-2">Logout</button>
+			</form>
+		</div>
+
 		{{-- <form action="" method="post" class="form">
 			<input type="text" name="search" id="search" placeholder="Search..." class="input_text" required>
 

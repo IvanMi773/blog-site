@@ -24,3 +24,5 @@ Route::get('/article/{article}', 'Blog\ArticleController@show')->name('article.s
 
 Route::post('/c', 'Blog\CommentController@store')->name('comment.store');
 
+Route::post('/theme', 'AppController@theme')->name('theme');
+Route::post('/language', 'AppController@language')->name('language');
