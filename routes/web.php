@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
 
 Route::group([
         'prefix' => '{locale}',
@@ -20,7 +21,6 @@ Route::group([
         'middleware' => 'setLocale',
     ],
     function () {
-        Auth::routes();
 
         Route::get('/blog/{category_id}', 'Blog\ArticleController@index')->name('article.index');
         Route::get('/article/{article}', 'Blog\ArticleController@show')->name('article.show');

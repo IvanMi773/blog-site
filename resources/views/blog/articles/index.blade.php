@@ -65,7 +65,9 @@
 					echo "$article->slug"
 				@endphp
 
-				<a href="{{ route('article.show', ['locale' => app()->getLocale(), 'article' => $article->id]) }}" class="text-left text-break">Continue...</a>
+				<a href="{{ route('article.show', ['locale' => app()->getLocale(), 'article' => $article->id]) }}" class="text-left text-break">
+					@lang('app.continue')
+				</a>
 			</p>
 
 			<br>

@@ -2,7 +2,9 @@
 
 @section('content')
 	<div class="container">
-		<a href="{{ route('article.index', ['locale' => app()->getLocale(), 'category_id' => 1]) }}" class="font-weight-bold text-dark text-large"><-Back</a>
+		<a href="{{ route('article.index', ['locale' => app()->getLocale(), 'category_id' => 1]) }}" class="font-weight-bold text-dark text-large">
+			@lang('app.back')
+		</a>
 	</div>
 
 	<div class="centered-block">
@@ -22,11 +24,15 @@
 
 		<form action="{{ route('comment.store', app()->getLocale()) }}" method="post" class="mb-3">
 			@csrf
-			<span class="text-muted">Please use html to make your comment look better</span> <br>
+			<span class="text-muted">
+				@lang('app.use_html_message')
+			</span> <br>
 			<input type="text" name="text" id="text" class="input_text">
 			<input type="hidden" name="article_id" value="{{ $article->id }}">
 
-			<button type="submit" class="button padding">Send</button>
+			<button type="submit" class="button padding">
+				@lang('app.send')
+			</button>
 		</form>
 
 		@foreach ($comments as $comment)
