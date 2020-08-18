@@ -30,11 +30,11 @@
 				</select>
 			</form> --}}
 
-			<form action="{{ route('logout', app()->getLocale()) }}" method="POST" class="">
+			{{-- <form action="{{ route('logout', app()->getLocale()) }}" method="POST" class="">
 				@csrf
 
 				<button type="submit" class="button p-2">Logout</button>
-			</form>
+			</form> --}}
 		</div>
 
 

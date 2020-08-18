@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/', function () {
+	return redirect('en/blog/1');
+});
+
 Route::group([
 		'prefix' => '{locale}',
 		'where' => ['locale' => '[a-zA-Z]{2}'],
