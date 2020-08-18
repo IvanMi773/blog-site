@@ -13,16 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
 
-Route::get('/', function () {
-	return redirect('/blog/1');
-});
+Route::group([
+        'prefix' => '{locale}',
+        'where' => ['locale' => '[a-zA-Z]{2}'],
+        'middleware' => 'setLocale',
+    ],
+    function () {
+        Auth::routes();
 
-Route::get('/blog/{category_id}', 'Blog\ArticleController@index')->name('article.index');
-Route::get('/article/{article}', 'Blog\ArticleController@show')->name('article.show');
+        Route::get('/blog/{category_id}', 'Blog\ArticleController@index')->name('article.index');
+        Route::get('/article/{article}', 'Blog\ArticleController@show')->name('article.show');
 
-Route::post('/c', 'Blog\CommentController@store')->name('comment.store');
+        Route::post('/c', 'Blog\CommentController@store')->name('comment.store');
+    }
+);
 
-Route::post('/theme', 'AppController@theme')->name('theme');
-Route::post('/language', 'AppController@language')->name('language');
+    // Route::post('/theme', 'AppController@theme')->name('theme');
+    // Route::get('/language/{locale}', 'AppController@setLanguage')->name('language');

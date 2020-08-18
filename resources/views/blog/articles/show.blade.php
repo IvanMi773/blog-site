@@ -2,14 +2,14 @@
 
 @section('content')
 	<div class="container">
-		<a href="/blog/1" class="font-weight-bold text-dark text-large"><-Back</a>
+		<a href="{{ route('article.index', ['locale' => app()->getLocale(), 'category_id' => 1]) }}" class="font-weight-bold text-dark text-large"><-Back</a>
 	</div>
 
 	<div class="centered-block">
 		<h2 class="text-left mb-3 text-black text-break">
 			{{ $article->title }}
 		</h2>
-		
+
 		<p class="text-muted">{{ $article->created_at }}</p>
 
 		<p class="text-break text mt-4">
@@ -20,7 +20,7 @@
 
 		<br>
 
-		<form action="{{ route('comment.store') }}" method="post" class="mb-3">
+		<form action="{{ route('comment.store', app()->getLocale()) }}" method="post" class="mb-3">
 			@csrf
 			<span class="text-muted">Please use html to make your comment look better</span> <br>
 			<input type="text" name="text" id="text" class="input_text">
@@ -34,9 +34,9 @@
 				<span>
 					@php
 						echo "$comment->text"
-					@endphp	
+					@endphp
 				</span> <br>
-				<span class="text-muted">{{ $comment->created_at }}</span> <br> 
+				<span class="text-muted">{{ $comment->created_at }}</span> <br>
 			</p>
 		@endforeach
 	</div>

@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
 
 class AppController extends Controller
 {
-	public function settings ()
+	public function setLanguage ($locale)
 	{
-		return view('blog.settings');
+		App::setLocale($locale);
+		session()->put('locale', $locale);
+
+		return \redirect('/blog/1');
 	}
 }

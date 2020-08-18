@@ -10,13 +10,6 @@ use App\Models\Article;
 
 class CommentController extends Controller
 {
-	// public function articlesWithThisCategory (Category $category)
-	// {
-	// 	$articles = Article::where('category_id', '=', $category->id)->paginate(20);
-
-	// 	return view('blog.articles.index', compact('articles'));
-	// }
-
 	public function store (CommentCreateRequest $request)
 	{
 		$data = $request->validated();
