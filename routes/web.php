@@ -16,12 +16,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group([
-        'prefix' => '{locale}',
-        'where' => ['locale' => '[a-zA-Z]{2}'],
-        'middleware' => 'setLocale',
-    ],
+		'prefix' => '{locale}',
+		'where' => ['locale' => '[a-zA-Z]{2}'],
+		'middleware' => 'setLocale',
+	],
     function () {
-
         Route::get('/blog/{category_id}', 'Blog\ArticleController@index')->name('article.index');
         Route::get('/article/{article}', 'Blog\ArticleController@show')->name('article.show');
 
@@ -31,3 +30,4 @@ Route::group([
 
     // Route::post('/theme', 'AppController@theme')->name('theme');
     // Route::get('/language/{locale}', 'AppController@setLanguage')->name('language');
+// {lang}/test/{id}
