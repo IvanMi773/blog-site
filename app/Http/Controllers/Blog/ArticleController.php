@@ -24,7 +24,7 @@ class ArticleController extends Controller
 			}
 		}
 
-		$articles = $this->paginate($articles);
+		$articles = $this->paginate($articles, 20);
 
 		$categories = Category::all();
 

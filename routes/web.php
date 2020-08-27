@@ -13,12 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Admin and auth routes
 Auth::routes();
 
 Route::get('/', function () {
-	return redirect('en/blog/1');
+	return redirect(app()->getLocale() . '/blog/1');
 });
 
+// Search route
+// Route::post('/search', 'SearchController@search')->name('search');
+// Route::get('/search', function() {
+// 	$articles = App\Models\Article::search('Test title')->get();
+// 	dd($articles);
+//     return $articles;
+// });
+
+// Blog routes
 Route::group([
 		'prefix' => '{locale}',
 		'where' => ['locale' => '[a-zA-Z]{2}'],
@@ -31,7 +41,3 @@ Route::group([
         Route::post('/c', 'Blog\CommentController@store')->name('comment.store');
     }
 );
-
-    // Route::post('/theme', 'AppController@theme')->name('theme');
-    // Route::get('/language/{locale}', 'AppController@setLanguage')->name('language');
-// {lang}/test/{id}

@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container">
-		<a href="{{ route('article.index', ['locale' => app()->getLocale(), 'category_id' => 1]) }}" class="font-weight-bold text-dark text-large">
+		<a href="{{ route('article.index', ['locale' => app()->getLocale(), 'category' => 1]) }}" class="font-weight-bold text-dark text-large">
 			@lang('app.back')
 		</a>
 	</div>

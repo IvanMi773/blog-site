@@ -11,6 +11,9 @@
 		<br>
 
 		<div class="centered-line mt-3 mb-3">
+			<a href="/en/blog/1" class="small-link ml-1 mr-1">En</a> |
+			<a href="/uk/blog/1" class="small-link mr-1 ml-1">Uk</a> |
+			<a href="/ru/blog/1" class="small-link ml-1">Ru</a>
 			{{-- <form action="{{ route('theme') }}" method="POST" class="">
 				@csrf
 
@@ -37,9 +40,8 @@
 			</form> --}}
 		</div>
 
-
-
-		{{-- <form action="" method="post" class="form">
+		{{-- <form action="{{ route('search') }}" method="post" class="form">
+			@csrf
 			<input type="text" name="search" id="search" placeholder="Search..." class="input_text" required>
 
 			<button type="submit" class="button">Search</button>
@@ -56,7 +58,7 @@
 				<p class="text-muted">{{ $article->created_at }}</p>
 
 				@foreach ($article->categories as $category)
-					<p class="text-large ml-2 font-weight-bold"> {{ $category->name }} </p>
+					<a href="{{ route('article.index', ['locale' => app()->getLocale(), 'category' => $category->id]) }}" class="text-large text-dark ml-2 font-weight-bold"> {{ $category->name }} </a>
 				@endforeach
 			</div>
 

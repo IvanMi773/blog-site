@@ -79,6 +79,14 @@
   color: #444343;
 }
 
+.small-link {
+  color: black;
+}
+
+.small-link:hover {
+  color: black;
+}
+
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

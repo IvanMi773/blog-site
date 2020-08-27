@@ -10,10 +10,10 @@
 	color: $black;
 	text-decoration: underline;
 	text-align: center;
-	
+
 	&:hover {
 		color: $light-gray;
-	} 
+	}
 }
 
 .dash {
@@ -51,7 +51,7 @@
 	&:hover {
 		background-color: $gray;
 		border-color: $black;
-	} 
+	}
 }
 
 .padding {
@@ -75,4 +75,12 @@
 .text {
 	font-size: 1.2em;
 	color: $gray;
+}
+
+.small-link {
+	color: $black;
+
+	&:hover {
+		color: $black;
+	}
 }
