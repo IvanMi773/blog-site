@@ -18,10 +18,10 @@ class Article extends Model
         'title', 'slug', 'text'
 	];
 
-	public function searchableAs(): string
-    {
-        return 'articles_index';
-    }
+	// public function searchableAs(): string
+    // {
+    //     return 'articles_index';
+    // }
 
 	/**
      * Get the indexable data array for the model.

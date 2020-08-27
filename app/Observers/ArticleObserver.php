@@ -14,7 +14,6 @@ class ArticleObserver
      */
     public function created(Article $article)
     {
-        $article->save();
     }
 
     /**
@@ -25,7 +24,6 @@ class ArticleObserver
      */
     public function updated(Article $article)
     {
-        $article->save();
     }
 
     /**
@@ -36,7 +34,6 @@ class ArticleObserver
      */
     public function deleted(Article $article)
     {
-        $article->delete();
     }
 
     /**
