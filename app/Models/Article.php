@@ -12,7 +12,9 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'slug', 'text'
+		'title',
+		'slug',
+		'text'
 	];
 
 	// public function searchableAs(): string

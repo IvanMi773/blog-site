@@ -15,7 +15,8 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "laravelrus/sleepingowl": "^7.20"
+        "laravelrus/sleepingowl": "^7.20",
+        "yansongda/laravel-parsedown": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.4",

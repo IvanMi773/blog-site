@@ -15,9 +15,7 @@
 		<p class="text-muted">{{ $article->created_at }}</p>
 
 		<p class="text-break text mt-4">
-			@php
-				echo "$article->text"
-			@endphp
+			@parsedown($article->text)
 		</p>
 
 		<br>

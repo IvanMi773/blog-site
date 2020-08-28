@@ -61,7 +61,7 @@ class Articles extends Section implements Initializable
         $columns = [
 			// #
 			AdminColumn::text('id', '#')->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
-			
+
 			// Title
             AdminColumn::link('title', 'Title', 'created_at')
                 ->setSearchCallback(function($column, $query, $search){
@@ -75,12 +75,12 @@ class Articles extends Section implements Initializable
                 })
 			,
 
-			// Text
+			// Slug
 			AdminColumn::text('slug', 'Slug'),
 
 			// Is dirt
 			AdminColumn::boolean('is_dirt', 'Is dirt'),
-			
+
 			// Created at
             AdminColumn::text('created_at', 'Created / updated', 'updated_at')
                 ->setWidth('160px')
@@ -132,13 +132,13 @@ class Articles extends Section implements Initializable
 				,
 
 				// Slug
-				AdminFormElement::textarea('slug', 'Slug')
+				AdminFormElement::textarea('slug', 'Slug (plain text)')
 					->setRows(5)
 					->required()
 				,
 
 				// Text
-				AdminFormElement::textarea('text', 'Text')
+				AdminFormElement::textarea('text', 'Text (Markdown)')
 					->required()
 				,
 
@@ -147,15 +147,15 @@ class Articles extends Section implements Initializable
                     ->setVisible(true)
                     ->setReadonly(false)
 				,
-				
+
             ], 'col-xs-12 col-sm-6 col-md-4 col-lg-4')->addColumn([
 				// Id
 				AdminFormElement::text('id', 'ID')->setReadonly(true),
 
 				// Is dirt
 				AdminFormElement::checkbox('is_dirt', 'Is Dirt'),
-				
-				// Category 
+
+				// Category
 				AdminFormElement::manyToMany('categories', )
 					->setRelatedElementDisplayName('name')
 				,

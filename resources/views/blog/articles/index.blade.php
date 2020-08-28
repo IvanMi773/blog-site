@@ -23,16 +23,6 @@
 				</select>
 			</form>
 
-			<form action="{{ route('language') }}" method="POST" class="">
-				@csrf
-
-				<select name="language" id="language">
-					<option value="ukrainian">Ukrainian</option>
-					<option value="english">English</option>
-					<option value="russian">Russian</option>
-				</select>
-			</form> --}}
-
 			{{-- <form action="{{ route('logout', app()->getLocale()) }}" method="POST" class="">
 				@csrf
 
@@ -54,7 +44,7 @@
 				{{ $article->title }}
 			</a>
 
-			<div class="inline mb-3 mt-3">
+			<div class="inline mb-1 mt-3">
 				<p class="text-muted">{{ $article->created_at }}</p>
 
 				@foreach ($article->categories as $category)
