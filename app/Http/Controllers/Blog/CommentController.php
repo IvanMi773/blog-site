@@ -16,7 +16,6 @@ class CommentController extends Controller
 
 		$comment = new Comment([
 			"text" => $data['text'],
-			'user_id' => auth()->user()->id,
 			'article_id' => $data['article_id'],
 		]);
 
