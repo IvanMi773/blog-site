@@ -14,6 +14,8 @@
 			<a href="/en/blog/1" class="small-link ml-1 mr-1">En</a> |
 			<a href="/uk/blog/1" class="small-link mr-1 ml-1">Uk</a> |
 			<a href="/ru/blog/1" class="small-link ml-1">Ru</a>
+
+
 			{{-- <form action="{{ route('theme') }}" method="POST" class="">
 				@csrf
 
@@ -29,6 +31,10 @@
 				<button type="submit" class="button p-2">Logout</button>
 			</form> --}}
 		</div>
+
+		@if (auth()->user()->isAdmin())
+			<a href="/admin" class="small-link">Admin panel</a>
+		@endif
 
 		{{-- <form action="{{ route('search') }}" method="post" class="form">
 			@csrf

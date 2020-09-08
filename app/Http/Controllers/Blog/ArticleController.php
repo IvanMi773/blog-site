@@ -16,7 +16,7 @@ class ArticleController extends Controller
 	// TODO: getting category_id witout lang variable
 	public function index ($lang, Category $category)
 	{
-		$dirt_articles = $category->articles()->paginate(20);
+		$dirt_articles = $category->articles()->orderBy('title', 'asc')->paginate(20);
 
 		foreach ($dirt_articles as $article) {
 			if (!$article->is_dirt) {
