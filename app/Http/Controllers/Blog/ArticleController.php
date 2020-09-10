@@ -16,33 +16,17 @@ class ArticleController extends Controller
 	// TODO: getting category_id witout lang variable
 	public function index ($lang, Category $category)
 	{
-		$dirt_articles = $category->articles()->orderBy('title', 'asc')->paginate(20);
-
-		foreach ($dirt_articles as $article) {
-			if (!$article->is_dirt) {
-				$articles[] = $article;
-			}
-		}
-
-		$articles = $this->paginate($articles, 20);
-
-		$categories = Category::all();
+		$articles = Category::getAllArticlesByCategory($category);
+		$categories = Category::getAllCategories();
 
 		return view('blog.articles.index', compact('articles', 'categories'));
 	}
-
-	public function paginate($items, $perPage = 5, $page = null, $options = [])
-    {
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
-    }
 
 	public function show ($lang, Article $article)
 	{
 		// TODO: normal date output
 
-		$comments = Comment::where('article_id', '=', $article->id)->paginate(100);
+		$comments = Comment::getCommentsToArticleByArticleId($article);
 
 		return view('blog.articles.show', compact('article', 'comments'));
 	}

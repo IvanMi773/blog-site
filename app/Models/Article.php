@@ -17,24 +17,6 @@ class Article extends Model
 		'text'
 	];
 
-	// public function searchableAs(): string
-    // {
-    //     return 'articles_index';
-    // }
-
-	/**
-     * Get the indexable data array for the model.
-     *
-     * @return array
-     */
-    // public function toSearchableArray(): array
-    // {
-    //     $array = $this->toArray();
-
-	// 	return array('id' => $array['id'], 'title' => $array['title']);
-    // }
-
-
 	/**
 	 * One to many relationship with Category
 	 *
