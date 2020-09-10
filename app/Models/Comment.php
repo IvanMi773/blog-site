@@ -10,6 +10,9 @@ class Comment extends Model
 		'text', 'article_id',
 	];
 
+	/**
+	 * Get all comments to article by article id
+	 */
 	public static function getCommentsToArticleByArticleId($article)
 	{
 		return Comment::where('article_id', '=', $article->id)->paginate(100);
