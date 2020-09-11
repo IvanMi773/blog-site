@@ -25,7 +25,10 @@
 			<span class="text-muted">
 				@lang('app.use_html_message')
 			</span> <br>
-			<input type="text" name="text" id="text" class="input_text">
+			
+			<textarea name="text" id="text" cols="60" rows="5"></textarea>
+			<br>
+
 			<input type="hidden" name="article_id" value="{{ $article->id }}">
 
 			<button type="submit" class="button padding">
@@ -34,14 +37,32 @@
 		</form>
 
 		@foreach ($comments as $comment)
-			<p>
-				<span>
-					@php
-						echo "$comment->text"
-					@endphp
-				</span> <br>
-				<span class="text-muted">{{ $comment->created_at }}</span> <br>
-			</p>
+			<div class="row">
+				<p class="col">
+					<span>
+						@php
+							echo "$comment->text"
+						@endphp
+					</span> <br>
+					<span class="text-muted">{{ $comment->created_at }}</span> <br>
+				</p>
+
+				@if (auth()->user())
+					@if (auth()->user()->isAdmin())
+						<div class="col d-flex justify-content-around">
+							<form action="/admin/comments/{{ $comment->id }}/edit" method="POST" class="">
+								@csrf
+
+								<button type="submit" style="border: none">
+									<img src="{{ asset('/images/svg/edit.svg') }}" />
+								</button>
+							</form>
+						</div>
+					@endif
+				@endif
+
+				<br>
+			</div>
 		@endforeach
 	</div>
 @endsection

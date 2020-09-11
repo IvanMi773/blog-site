@@ -20,14 +20,6 @@ Route::get('/', function () {
 	return redirect(app()->getLocale() . '/blog/1');
 });
 
-// Search route
-// Route::post('/search', 'SearchController@search')->name('search');
-// Route::get('/search', function() {
-// 	$articles = App\Models\Article::search('Test title')->get();
-// 	dd($articles);
-//     return $articles;
-// });
-
 // Blog routes
 Route::group([
 		'prefix' => '{locale}',
@@ -35,9 +27,11 @@ Route::group([
 		'middleware' => 'setLocale',
 	],
     function () {
+		// Article routes
         Route::get('/blog/{category}', 'Blog\ArticleController@index')->name('article.index');
         Route::get('/article/{article}', 'Blog\ArticleController@show')->name('article.show');
 
-        Route::post('/c', 'Blog\CommentController@store')->name('comment.store');
+		// Comments routes
+		Route::post('/c', 'Blog\CommentController@store')->name('comment.store');
     }
 );
