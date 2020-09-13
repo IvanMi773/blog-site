@@ -16,11 +16,27 @@
 			<a href="/ru/blog/1" class="small-link ml-1">Ru</a>
 		</div>
 
-		@if (auth()->user())
-			@if (auth()->user()->isAdmin())
-				<a href="/admin" class="small-link">Admin panel</a>
+		<div class="row">
+			@if (auth()->user())
+				@if (auth()->user()->isAdmin())
+					<a href="/admin" class="small-link col">
+						<button type="submit" class="btn btn-dark">
+							Admin panel
+						</button>
+					</a>
+				@endif
 			@endif
-		@endif
+
+			@if (auth()->user())
+				@if (auth()->user()->isAdmin())
+					<form action="/logout" method="POST" class="col d-flex justify-content-around">
+						@csrf
+
+						<button type="submit" class="btn btn-dark">Logout</button>
+					</form>
+				@endif
+			@endif
+		</div>
 
 		<hr>
 
